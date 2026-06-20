@@ -170,7 +170,7 @@ rata = (
 )
 
 fig3, ax3 = plt.subplots(
-    figsize=(8,6)
+    figsize=(8,10)
 )
 
 ax3.barh(
