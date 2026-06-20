@@ -16,16 +16,28 @@ st.title("📊 Dashboard Analisis TikTok Shop")
 st.subheader(
     "Pengaruh Gamifikasi Misi terhadap Retensi Pengguna TikTok Shop"
 )
-st.markdown("""
-### 👥 KELOMPOK 8
+st.markdown("### 👥 Kelompok 8")
 
-- **Project Manager** : Nabila Efa Hanifah
-- **Survey Specialist** : Kanaya Aulia Zahra
-- **Web Scraping Specialist** : Faiqah Putri Alma
-- **Data Engineer** : -
-- **Data Analyst** : Nafisah Naila Rahmah
-- **Dashboard Developer** : Aileen Sebayang
-""")
+tim = pd.DataFrame({
+    "Peran": [
+        "Project Manager",
+        "Survey Specialist",
+        "Web Scraping Specialist",
+        "Data Engineer",
+        "Data Analyst",
+        "Dashboard Developer"
+    ],
+    "Nama": [
+        "Nabila Efa Hanifah",
+        "Kanaya Aulia Zahra",
+        "Faiqah Putri Alma",
+        "-",
+        "Nafisah Naila Rahmah",
+        "Aileen Sebayang"
+    ]
+})
+
+st.table(tim)
 
 # ====================================
 # DATA
@@ -262,7 +274,9 @@ for bar in bars:
         f"{height:.2f}",
         ha="center"
     )
+left, center, right = st.columns([1,2,1])
 
+with center:
 st.pyplot(fig5)
 
 # ====================================
@@ -300,5 +314,7 @@ ax6.set_ylabel('Skor Retensi (Y)')
 ax6.set_title(
     'Hubungan Gamifikasi terhadap Retensi Pengguna'
 )
+left, center, right = st.columns([1,2,1])
 
+with center:
 st.pyplot(fig6)
