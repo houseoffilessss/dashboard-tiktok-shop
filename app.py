@@ -97,7 +97,7 @@ with col1:
         autopct="%1.1f%%",
         colors=["#C084FC", "#F9A8D4"]
     )
-
+    ax1.axis('equal')
     ax1.set_title("Jenis Kelamin")
 
     st.pyplot(fig1)
@@ -114,7 +114,8 @@ with col2:
         autopct="%1.1f%%",
         colors=["#06B6D4", "#FBBF24", "#84CC16"]
     )
-
+    
+    ax2.axis('equal')
     ax2.set_title("Usia")
 
     st.pyplot(fig2)
@@ -134,6 +135,7 @@ with col3:
         colors=["#3B82F6", "#F59E0B", "#22C55E"]
     )
 
+    ax3.axis('equal')
     ax3.set_title("Frekuensi Penggunaan")
 
     st.pyplot(fig3)
