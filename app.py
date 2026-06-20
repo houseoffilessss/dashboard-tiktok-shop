@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # ====================================
 
 st.set_page_config(
-    page_title="Dashboard TikTok Shop",
+    page_title="Dashboard TikTok Shop - Kelompok 8",
     layout="wide"
 )
 
@@ -16,6 +16,15 @@ st.title("📊 Dashboard Analisis TikTok Shop")
 st.subheader(
     "Pengaruh Gamifikasi Misi terhadap Retensi Pengguna TikTok Shop"
 )
+st.info("""
+👥 KELOMPOK 8
+Project Manager : Nabila Efa Hanifah
+Survey Specialist : Kanaya Aulia Zahra
+Web Scraping Specialist : Faiqah Putri Alma
+Data Engineer : -
+Data Analyst : Nafisah Naila Rahmah
+Dashboard Developer : Aileen Sebayang
+""")
 
 # ====================================
 # DATA
