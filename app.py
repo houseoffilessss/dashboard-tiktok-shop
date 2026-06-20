@@ -247,7 +247,7 @@ bars = ax5.bar(
 ax5.set_ylim(0, 5)
 ax5.set_ylabel("Rata-rata Skor (Skala 1-5)")
 ax5.set_title("Rata-rata Skor per Variabel (Gamifikasi → Retensi)")
-ax5.tick_params(axis='x', rotation=20)
+ax5.tick_params(axis='x', rotation=-20)
 
 for bar in bars:
     height = bar.get_height()
@@ -299,7 +299,7 @@ st.header("Analisis Variabel")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Rata-rata Variabel")
+    st.subheader("Rata-rata Skor per Variabel")
     st.pyplot(fig5)
 
 with col2:
