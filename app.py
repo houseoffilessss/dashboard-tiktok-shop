@@ -8,14 +8,6 @@ st.set_page_config(
     layout="wide"
 )
 
-st.markdown("""
-<style>
-.stApp {
-    background-color: #2C272C;
-}
-</style>
-""", unsafe_allow_html=True)
-
 st.title("📊 Dashboard Analisis TikTok Shop")
 st.subheader(
     "Pengaruh Gamifikasi Misi terhadap Retensi Pengguna TikTok Shop"
