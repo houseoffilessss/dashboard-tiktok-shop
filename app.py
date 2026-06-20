@@ -238,10 +238,10 @@ variabel_mapping = {
 }
 
 # ====================================
-# RATA-RATA VARIABEL
+# ANALISIS VARIABEL
 # ====================================
 
-st.header("Rata-rata Variabel Penelitian")
+# Rata-rata Variabel
 
 rata2_variabel = {
     var: df_filter[cols].mean().mean()
@@ -274,16 +274,8 @@ for bar in bars:
         f"{height:.2f}",
         ha="center"
     )
-left, center, right = st.columns([1,2,1])
 
-with center:
-    st.pyplot(fig5)
-
-# ====================================
-# SCATTER PLOT
-# ====================================
-
-st.header("Hubungan Gamifikasi terhadap Retensi")
+# Scatter Plot
 
 df_scatter = df_filter.copy()
 
@@ -299,7 +291,7 @@ df_scatter['Skor_Y'] = (
     ].mean(axis=1)
 )
 
-fig6, ax6 = plt.subplots(figsize=(5, 3))
+fig6, ax6 = plt.subplots(figsize=(5,3))
 
 ax6.scatter(
     df_scatter['Skor_X1'],
@@ -312,9 +304,19 @@ ax6.scatter(
 ax6.set_xlabel('Skor Gamifikasi (X1)')
 ax6.set_ylabel('Skor Retensi (Y)')
 ax6.set_title(
-    'Hubungan Gamifikasi terhadap Retensi Pengguna'
+    'Hubungan Gamifikasi terhadap Retensi'
 )
-left, center, right = st.columns([1,2,1])
 
-with center:
+# TAMPILKAN 2 KOLOM
+
+st.header("Analisis Variabel")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader("Rata-rata Variabel")
+    st.pyplot(fig5)
+
+with col2:
+    st.subheader("Gamifikasi vs Retensi")
     st.pyplot(fig6)
