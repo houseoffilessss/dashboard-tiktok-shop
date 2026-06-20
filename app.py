@@ -94,7 +94,8 @@ with col1:
     ax1.pie(
         jk,
         labels=jk.index,
-        autopct="%1.1f%%"
+        autopct="%1.1f%%",
+        colors=["#C084FC", "#F9A8D4"]
     )
 
     ax1.set_title("Jenis Kelamin")
@@ -110,7 +111,8 @@ with col2:
     ax2.pie(
         usia_data,
         labels=usia_data.index,
-        autopct="%1.1f%%"
+        autopct="%1.1f%%",
+        colors=["#06B6D4", "#FBBF24", "#84CC16"]
     )
 
     ax2.set_title("Usia")
@@ -167,13 +169,14 @@ freq = df_filter[
     "Seberapa sering anda menggunakan fitur Tiktok Shop?"
 ].value_counts()
 
-ax4.pie(
+ax3.pie(
     freq,
     labels=freq.index,
-    autopct="%1.1f%%"
+    autopct="%1.1f%%",
+    colors=["#3B82F6", "#F59E0B", "#22C55E"]
 )
 
-ax4.set_title("Frekuensi Penggunaan")
+ax3.set_title("Frekuensi Penggunaan")
 
 st.pyplot(fig4)
 
@@ -230,7 +233,13 @@ fig5, ax5 = plt.subplots(figsize=(8, 5))
 
 bars = ax5.bar(
     rata2_variabel.keys(),
-    rata2_variabel.values()
+    rata2_variabel.values(),
+    color=[
+        "#8B5CF6",
+        "#EF4444",
+        "#84CC16",
+        "#3B82F6"
+    ]
 )
 
 ax5.set_ylim(0, 5)
@@ -274,7 +283,9 @@ fig6, ax6 = plt.subplots(figsize=(8, 6))
 ax6.scatter(
     df_scatter['Skor_X1'],
     df_scatter['Skor_Y'],
-    alpha=0.6
+    color="#60A5FA",
+    alpha=0.7,
+    s=50
 )
 
 ax6.set_xlabel('Skor Gamifikasi (X1)')
