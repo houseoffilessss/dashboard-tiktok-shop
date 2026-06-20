@@ -106,7 +106,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
 
     fig1, ax1 = plt.subplots(figsize=(4,4))
-    st.subheader("Jenis Kelamin")
+    st.der("Jenis Kelamin")
     jk = df_filter["Jenis Kelamin"].value_counts()
 
     ax1.pie(
@@ -122,7 +122,7 @@ with col1:
 with col2:
 
     fig2, ax2 = plt.subplots(figsize=(4,4))
-    st.Subheader("Usia")
+    st.subheader("Usia")
     usia_data = df_filter["Usia"].value_counts()
 
     ax2.pie(
@@ -138,7 +138,7 @@ with col2:
 with col3:
 
     fig3, ax3 = plt.subplots(figsize=(4,4))
-    st.Subheader("Frekuensi Penggunaan")
+    st.subheader("Frekuensi Penggunaan")
     freq = df_filter[
         "Seberapa sering anda menggunakan fitur Tiktok Shop?"
     ].value_counts()
