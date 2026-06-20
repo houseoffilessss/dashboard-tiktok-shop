@@ -106,7 +106,10 @@ col1, col2, col3 = st.columns(3)
 with col1:
 
     fig1, ax1 = plt.subplots(figsize=(4,4))
-    st.subheader("Jenis Kelamin")
+    st.markdown(
+        "<h3 style='text-align: center;'>Jenis Kelamin</h3>",
+        unsafe_allow_html=True
+    )
     jk = df_filter["Jenis Kelamin"].value_counts()
 
     ax1.pie(
@@ -122,7 +125,10 @@ with col1:
 with col2:
 
     fig2, ax2 = plt.subplots(figsize=(4,4))
-    st.subheader("Usia")
+    st.markdown(
+        "<h3 style='text-align: center;'>Usia</h3>",
+        unsafe_allow_html=True
+    )
     usia_data = df_filter["Usia"].value_counts()
 
     ax2.pie(
@@ -138,7 +144,10 @@ with col2:
 with col3:
 
     fig3, ax3 = plt.subplots(figsize=(4,4))
-    st.subheader("Frekuensi Penggunaan")
+    st.markdown(
+        "<h3 style='text-align: center;'>Frekuensi Penggunaan</h3>",
+        unsafe_allow_html=True
+    )
     freq = df_filter[
         "Seberapa sering anda menggunakan fitur Tiktok Shop?"
     ].value_counts()
