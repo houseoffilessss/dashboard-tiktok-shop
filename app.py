@@ -17,7 +17,7 @@ st.subheader(
     "Pengaruh Gamifikasi Misi terhadap Retensi Pengguna TikTok Shop"
 )
 st.markdown("""
-### 👥 Tim Proyek
+### 👥 ANGGOTA KELOMPOK 8
 
 - **Project Manager** : Nabila Efa Hanifah
 - **Survey Specialist** : Kanaya Aulia Zahra
