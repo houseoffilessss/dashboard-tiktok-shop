@@ -3,10 +3,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ====================================
-# KONFIGURASI
-# ====================================
-
 st.set_page_config(
     page_title="Dashboard TikTok Shop - Kelompok 8",
     layout="wide"
@@ -110,41 +106,39 @@ col1, col2, col3 = st.columns(3)
 with col1:
 
     fig1, ax1 = plt.subplots(figsize=(4,4))
-
+    st.Subheader("Jenis Kelamin")
     jk = df_filter["Jenis Kelamin"].value_counts()
 
     ax1.pie(
         jk,
         labels=jk.index,
         autopct="%1.1f%%",
-        colors=["#C084FC", "#F9A8D4"]
+        colors=["#ff9999", "#66b3ff"]
     )
     
-    ax1.set_title("Jenis Kelamin")
     ax1.axis('equal')
     st.pyplot(fig1)
 
 with col2:
 
     fig2, ax2 = plt.subplots(figsize=(4,4))
-
+    st.Subheader("Usia")
     usia_data = df_filter["Usia"].value_counts()
 
     ax2.pie(
         usia_data,
         labels=usia_data.index,
         autopct="%1.1f%%",
-        colors=["#06B6D4", "#FBBF24", "#84CC16"]
+        colors=["#99ff99", "#ffcc99", "#c2c2f0"]
     )
     
-    ax2.set_title("Usia")
     ax2.axis('equal')
     st.pyplot(fig2)
 
 with col3:
 
     fig3, ax3 = plt.subplots(figsize=(4,4))
-
+    st.Subheader("Frekuensi Penggunaan")
     freq = df_filter[
         "Seberapa sering anda menggunakan fitur Tiktok Shop?"
     ].value_counts()
@@ -153,10 +147,9 @@ with col3:
         freq,
         labels=freq.index,
         autopct="%1.1f%%",
-        colors=["#3B82F6", "#F59E0B", "#22C55E"]
+        colors=["#ffb3e6", "#c4e17f", "#76d7c4"]
     )
     
-    ax3.set_title("Frekuensi Penggunaan")
     ax3.axis('equal')
     st.pyplot(fig3)
 
@@ -164,7 +157,7 @@ with col3:
 # RATA-RATA PERTANYAAN
 # ====================================
 
-st.header("Rata-rata Pertanyaan")
+st.header("Rata-rata Jawaban Responden per Pertanyaan")
 
 numeric_cols = df_filter.select_dtypes(
     include="number"
@@ -188,16 +181,6 @@ ax3.barh(
 ax3.set_xlabel("Skor")
 
 st.pyplot(fig3)
-
-# ====================================
-# PREVIEW DATA
-# ====================================
-
-st.header("Preview Data")
-
-st.write(
-    df_filter.head()
-)
 
 # ====================================
 # VARIABEL PENELITIAN
@@ -248,22 +231,23 @@ rata2_variabel = {
     for var, cols in variabel_mapping.items()
 }
 
-fig5, ax5 = plt.subplots(figsize=(5,3))
+fig5, ax5 = plt.subplots(figsize=(8,6))
 
 bars = ax5.bar(
     rata2_variabel.keys(),
     rata2_variabel.values(),
     color=[
-        "#8B5CF6",
-        "#EF4444",
-        "#84CC16",
-        "#3B82F6"
+        "#4C72B0",
+        "#DD8452",
+        "#55A868",
+        "#C44E52"
     ]
 )
 
 ax5.set_ylim(0, 5)
-ax5.set_ylabel("Rata-rata Skor")
-ax5.set_title("Rata-rata Skor Variabel")
+ax5.set_ylabel("Rata-rata Skor (Skala 1-5)")
+ax5.set_title("Rata-rata Skor per Variabel (Gamifikasi → Retensi)")
+ax5.tick_params(axis='x', rotation=20)
 
 for bar in bars:
     height = bar.get_height()
@@ -274,7 +258,7 @@ for bar in bars:
         f"{height:.2f}",
         ha="center"
     )
-
+ax5.tight_layout()
 # Scatter Plot
 
 df_scatter = df_filter.copy()
@@ -296,16 +280,17 @@ fig6, ax6 = plt.subplots(figsize=(5,3))
 ax6.scatter(
     df_scatter['Skor_X1'],
     df_scatter['Skor_Y'],
-    color="#60A5FA",
-    alpha=0.7,
-    s=50
+    color="#C44E52",
+    alpha=0.6,
+    s=25
 )
 
 ax6.set_xlabel('Skor Gamifikasi (X1)')
 ax6.set_ylabel('Skor Retensi (Y)')
 ax6.set_title(
-    'Hubungan Gamifikasi terhadap Retensi'
+    'Hubungan Gamifikasi terhadap Retensi Pengguna'
 )
+ax6.tight_layout()
 
 # TAMPILKAN 2 KOLOM
 
