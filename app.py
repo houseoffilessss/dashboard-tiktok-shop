@@ -83,7 +83,7 @@ with col3:
 
 st.header("Profil Responden")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
 
@@ -118,6 +118,25 @@ with col2:
     ax2.set_title("Usia")
 
     st.pyplot(fig2)
+
+with col3:
+
+    fig3, ax3 = plt.subplots(figsize=(4,4))
+
+    freq = df_filter[
+        "Seberapa sering anda menggunakan fitur Tiktok Shop?"
+    ].value_counts()
+
+    ax3.pie(
+        freq,
+        labels=freq.index,
+        autopct="%1.1f%%",
+        colors=["#3B82F6", "#F59E0B", "#22C55E"]
+    )
+
+    ax3.set_title("Frekuensi Penggunaan")
+
+    st.pyplot(fig3)
 
 # ====================================
 # RATA-RATA PERTANYAAN
@@ -157,28 +176,6 @@ st.header("Preview Data")
 st.write(
     df_filter.head()
 )
-# ====================================
-# PIE CHART FREKUENSI PENGGUNAAN
-# ====================================
-
-st.header("Frekuensi Penggunaan TikTok Shop")
-
-fig4, ax4 = plt.subplots()
-
-freq = df_filter[
-    "Seberapa sering anda menggunakan fitur Tiktok Shop?"
-].value_counts()
-
-ax3.pie(
-    freq,
-    labels=freq.index,
-    autopct="%1.1f%%",
-    colors=["#3B82F6", "#F59E0B", "#22C55E"]
-)
-
-ax3.set_title("Frekuensi Penggunaan")
-
-st.pyplot(fig4)
 
 # ====================================
 # VARIABEL PENELITIAN
