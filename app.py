@@ -87,7 +87,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
 
-    fig1, ax1 = plt.subplots()
+    fig1, ax1 = plt.subplots(figsize=(4,4))
 
     jk = df_filter["Jenis Kelamin"].value_counts()
 
@@ -97,14 +97,14 @@ with col1:
         autopct="%1.1f%%",
         colors=["#C084FC", "#F9A8D4"]
     )
-    ax1.axis('equal')
+    
     ax1.set_title("Jenis Kelamin")
 
     st.pyplot(fig1)
 
 with col2:
 
-    fig2, ax2 = plt.subplots()
+    fig2, ax2 = plt.subplots(figsize=(4,4))
 
     usia_data = df_filter["Usia"].value_counts()
 
@@ -115,7 +115,6 @@ with col2:
         colors=["#06B6D4", "#FBBF24", "#84CC16"]
     )
     
-    ax2.axis('equal')
     ax2.set_title("Usia")
 
     st.pyplot(fig2)
@@ -134,8 +133,7 @@ with col3:
         autopct="%1.1f%%",
         colors=["#3B82F6", "#F59E0B", "#22C55E"]
     )
-
-    ax3.axis('equal')
+    
     ax3.set_title("Frekuensi Penggunaan")
 
     st.pyplot(fig3)
