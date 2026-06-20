@@ -106,7 +106,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
 
     fig1, ax1 = plt.subplots(figsize=(4,4))
-    st.der("Jenis Kelamin")
+    st.subheader("Jenis Kelamin")
     jk = df_filter["Jenis Kelamin"].value_counts()
 
     ax1.pie(
