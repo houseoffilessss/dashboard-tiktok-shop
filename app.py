@@ -155,3 +155,132 @@ st.header("Preview Data")
 st.write(
     df_filter.head()
 )
+# ====================================
+# PIE CHART FREKUENSI PENGGUNAAN
+# ====================================
+
+st.header("Frekuensi Penggunaan TikTok Shop")
+
+fig4, ax4 = plt.subplots()
+
+freq = df_filter[
+    "Seberapa sering anda menggunakan fitur Tiktok Shop?"
+].value_counts()
+
+ax4.pie(
+    freq,
+    labels=freq.index,
+    autopct="%1.1f%%"
+)
+
+ax4.set_title("Frekuensi Penggunaan")
+
+st.pyplot(fig4)
+
+# ====================================
+# VARIABEL PENELITIAN
+# ====================================
+
+variabel_mapping = {
+    'X1 (Gamifikasi)': [
+        'Sistem pengumpulan poin atau level pada TikTok Shop sudah adil. ',
+        'Informasi mengenai syarat kenaikan poin atau level pada TikTok Shop sudah jelas dan transparan. ',
+        'Saya memahami mekanisme pengumpulan poin atau peningkatan level di TikTok Shop. ',
+        'Sistem pemberian poin atau level pada TikTok Shop dapat dipercaya. ',
+        'Perolehan poin atau level pada TikTok Shop sesuai dengan aktivitas yang saya lakukan. '
+    ],
+
+    'M1 (Tantangan)': [
+        'Saya merasa tertantang saat menyelesaikan target atau misi harian di TikTok Shop.',
+        'Durasi terbatas pada Flash Sale di TikTok Shop meningkatkan rasa tantangan dalam\nberbelanja.',
+        'Saya merasa tertantang untuk bersaing dengan penonton lain dalam memperoleh produk saat sesi Live Shopping di TikTok Shop.',
+        'Saya merasa tertantang untuk terus menonton Live Shopping di TikTok Shop.',
+        'Saya merasa tertantang saat mengikuti event campaign (misalnya event tanggal kembar) di TikTok Shop.'
+    ],
+
+    'M2 (Hiburan)': [
+        'Aktivitas seperti Flash Sale di TikTok Shop membuat pengalaman saya menjadi lebih menyenangkan.',
+        'Saya merasa terhibur saat berinteraksi dengan fitur Live Shopping di TikTok Shop.',
+        'Aktivitas berburu promo di TikTok Shop membuat saya merasa lebih antusias.',
+        'Aktivitas di TikTok Shop terasa sebagai hiburan, bukan sekadar kegiatan berbelanja. ',
+        'Proses mengumpulkan voucher atau reward di TikTok Shop memberikan kesenangan bagi saya.'
+    ],
+
+    'Y (Retensi)': [
+        'Saya sering menggunakan TikTok Shop.',
+        'Kemudahan dalam mencari barang di TikTok Shop membuat saya lebih sering menggunakannya.',
+        'Tampilan TikTok Shop mendorong saya untuk kembali menggunakan aplikasi.',
+        'Promo atau diskon di TikTok Shop meningkatkan frekuensi penggunaan saya.',
+        'Fitur reward di TikTok Shop mendorong saya untuk terus menggunakan aplikasi.'
+    ]
+}
+
+# ====================================
+# RATA-RATA VARIABEL
+# ====================================
+
+st.header("Rata-rata Variabel Penelitian")
+
+rata2_variabel = {
+    var: df_filter[cols].mean().mean()
+    for var, cols in variabel_mapping.items()
+}
+
+fig5, ax5 = plt.subplots(figsize=(8, 5))
+
+bars = ax5.bar(
+    rata2_variabel.keys(),
+    rata2_variabel.values()
+)
+
+ax5.set_ylim(0, 5)
+ax5.set_ylabel("Rata-rata Skor")
+ax5.set_title("Rata-rata Skor Variabel")
+
+for bar in bars:
+    height = bar.get_height()
+
+    ax5.text(
+        bar.get_x() + bar.get_width()/2,
+        height + 0.05,
+        f"{height:.2f}",
+        ha="center"
+    )
+
+st.pyplot(fig5)
+
+# ====================================
+# SCATTER PLOT
+# ====================================
+
+st.header("Hubungan Gamifikasi terhadap Retensi")
+
+df_scatter = df_filter.copy()
+
+df_scatter['Skor_X1'] = (
+    df_scatter[
+        variabel_mapping['X1 (Gamifikasi)']
+    ].mean(axis=1)
+)
+
+df_scatter['Skor_Y'] = (
+    df_scatter[
+        variabel_mapping['Y (Retensi)']
+    ].mean(axis=1)
+)
+
+fig6, ax6 = plt.subplots(figsize=(8, 6))
+
+ax6.scatter(
+    df_scatter['Skor_X1'],
+    df_scatter['Skor_Y'],
+    alpha=0.6
+)
+
+ax6.set_xlabel('Skor Gamifikasi (X1)')
+ax6.set_ylabel('Skor Retensi (Y)')
+ax6.set_title(
+    'Hubungan Gamifikasi terhadap Retensi Pengguna'
+)
+
+st.pyplot(fig6)
