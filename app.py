@@ -27,7 +27,7 @@ tim = pd.DataFrame({
         "Nabila Efa Hanifah",
         "Kanaya Aulia Zahra",
         "Faiqah Putri Alma",
-        "-",
+        "",
         "Nafisah Naila Rahmah",
         "Aileen Sebayang"
     ]
