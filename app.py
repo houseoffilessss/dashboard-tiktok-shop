@@ -248,7 +248,7 @@ rata2_variabel = {
     for var, cols in variabel_mapping.items()
 }
 
-fig5, ax5 = plt.subplots(figsize=(8, 5))
+fig5, ax5 = plt.subplots(figsize=(5,3))
 
 bars = ax5.bar(
     rata2_variabel.keys(),
@@ -277,7 +277,7 @@ for bar in bars:
 left, center, right = st.columns([1,2,1])
 
 with center:
-st.pyplot(fig5)
+    st.pyplot(fig5)
 
 # ====================================
 # SCATTER PLOT
@@ -299,7 +299,7 @@ df_scatter['Skor_Y'] = (
     ].mean(axis=1)
 )
 
-fig6, ax6 = plt.subplots(figsize=(8, 6))
+fig6, ax6 = plt.subplots(figsize=(5, 3))
 
 ax6.scatter(
     df_scatter['Skor_X1'],
@@ -317,4 +317,4 @@ ax6.set_title(
 left, center, right = st.columns([1,2,1])
 
 with center:
-st.pyplot(fig6)
+    st.pyplot(fig6)
