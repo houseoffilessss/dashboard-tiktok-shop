@@ -16,14 +16,15 @@ st.title("📊 Dashboard Analisis TikTok Shop")
 st.subheader(
     "Pengaruh Gamifikasi Misi terhadap Retensi Pengguna TikTok Shop"
 )
-st.info("""
-👥 KELOMPOK 8
-Project Manager : Nabila Efa Hanifah
-Survey Specialist : Kanaya Aulia Zahra
-Web Scraping Specialist : Faiqah Putri Alma
-Data Engineer : -
-Data Analyst : Nafisah Naila Rahmah
-Dashboard Developer : Aileen Sebayang
+st.markdown("""
+### 👥 Tim Proyek
+
+- **Project Manager** : Nabila Efa Hanifah
+- **Survey Specialist** : Kanaya Aulia Zahra
+- **Web Scraping Specialist** : Faiqah Putri Alma
+- **Data Engineer** : -
+- **Data Analyst** : Nafisah Naila Rahmah
+- **Dashboard Developer** : Aileen Sebayang
 """)
 
 # ====================================
