@@ -99,7 +99,7 @@ with col1:
     )
     
     ax1.set_title("Jenis Kelamin")
-
+    ax1.axis('equal')
     st.pyplot(fig1)
 
 with col2:
@@ -116,7 +116,7 @@ with col2:
     )
     
     ax2.set_title("Usia")
-
+    ax2.axis('equal')
     st.pyplot(fig2)
 
 with col3:
@@ -135,7 +135,7 @@ with col3:
     )
     
     ax3.set_title("Frekuensi Penggunaan")
-
+    ax3.axis('equal')
     st.pyplot(fig3)
 
 # ====================================
