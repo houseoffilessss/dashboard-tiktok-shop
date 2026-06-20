@@ -258,7 +258,7 @@ for bar in bars:
         f"{height:.2f}",
         ha="center"
     )
-ax5.tight_layout()
+
 # Scatter Plot
 
 df_scatter = df_filter.copy()
@@ -290,7 +290,7 @@ ax6.set_ylabel('Skor Retensi (Y)')
 ax6.set_title(
     'Hubungan Gamifikasi terhadap Retensi Pengguna'
 )
-ax6.tight_layout()
+
 
 # TAMPILKAN 2 KOLOM
 
