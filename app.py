@@ -348,10 +348,28 @@ for i, (_, row) in enumerate(df_review.iterrows()):
     rating = "⭐" * int(row["Rating"])
 
     card = f"""
-**{row['Nama']}**
+<div style="
+padding:15px;
+border-radius:10px;
+border:1px solid #444;
+background-color:#1E1E1E;
+margin-bottom:15px;
+">
 
-📅 {row['Tanggal']}
+<h4>{row['Nama']}</h4>
 
-{rating}
+<div style="font-size:20px;">{rating}</div>
 
-{row['Ulasan']}
+<p>{row['Ulasan']}</p>
+
+<p style="color:#B0B0B0;">📅 {row['Tanggal']}</p>
+
+</div>
+"""
+
+    if i % 2 == 0:
+        with col1:
+            st.markdown(card, unsafe_allow_html=True)
+    else:
+        with col2:
+            st.markdown(card, unsafe_allow_html=True)
