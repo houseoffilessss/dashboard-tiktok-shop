@@ -49,7 +49,6 @@ df_review = pd.read_csv(
     "ulasan_tiktok_1000 - Beberapa ulasan pengguna.csv",
     header=2
 )
-)
 
 # ====================================
 # FILTER
