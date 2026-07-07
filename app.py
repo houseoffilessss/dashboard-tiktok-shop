@@ -41,6 +41,10 @@ st.table(tim)
 
 df = pd.read_csv("data_tiktok_shop_bersih.csv")
 
+df_ulasan = pd.read_csv(
+    "ulasan_tiktok_1000 - Ulasan Pengguna Tiktok.csv"
+)
+
 # ====================================
 # FILTER
 # ====================================
@@ -305,3 +309,35 @@ with col1:
 with col2:
     st.subheader("Gamifikasi vs Retensi")
     st.pyplot(fig6)
+
+# ====================================
+# ULASAN PENGGUNA
+# ====================================
+
+st.header("💬 Ulasan Pengguna TikTok")
+
+st.metric(
+    "Jumlah Ulasan",
+    len(df_ulasan)
+)
+
+st.metric(
+    "Rating Rata-rata",
+    round(df_ulasan["Rating"].mean(), 2)
+)
+
+for _, row in df_ulasan.sample(5, random_state=42).iterrows():
+
+    st.container(border=True)
+
+    bintang = "⭐" * int(row["Rating"])
+
+    st.markdown(f"### {bintang}")
+
+    st.write(f"**{row['Nama Pengguna']}**")
+
+    st.write(row["Ulasan"])
+
+    st.caption(row["Tanggal"])
+
+    st.divider()
