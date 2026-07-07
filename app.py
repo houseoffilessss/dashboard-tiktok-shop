@@ -41,8 +41,14 @@ st.table(tim)
 
 df = pd.read_csv("data_tiktok_shop_bersih.csv")
 
-df_ulasan = pd.read_csv(
-    "ulasan_tiktok_1000 - Ulasan Pengguna Tiktok.csv"
+# Data hasil scraping (1000 ulasan)
+df_rating = pd.read_csv("ulasan_tiktok_1000 - Ulasan Pengguna Tiktok.csv")
+
+# Data beberapa ulasan pilihan
+df_review = pd.read_csv(
+    "ulasan_tiktok_1000 - Beberapa ulasan pengguna.csv",
+    header=2
+)
 )
 
 # ====================================
@@ -314,30 +320,49 @@ with col2:
 # ULASAN PENGGUNA
 # ====================================
 
-st.header("💬 Ulasan Pengguna TikTok")
+st.header("💬 Ulasan Pengguna TikTok Shop")
 
-st.metric(
-    "Jumlah Ulasan",
-    len(df_ulasan)
-)
+col1, col2 = st.columns([1, 1])
 
-st.metric(
-    "Rating Rata-rata",
-    round(df_ulasan["Rating"].mean(), 2)
-)
+with col1:
+    st.metric(
+        label="Jumlah Ulasan",
+        value=f"{len(df_rating):,}"
+    )
 
-for _, row in df_ulasan.sample(5, random_state=42).iterrows():
+with col2:
+    st.metric(
+        label="Rating Rata-rata",
+        value=f"{df_rating['Rating'].mean():.2f} ⭐"
+    )
 
-    st.container(border=True)
+# ====================================
+# BEBERAPA ULASAN PENGGUNA
+# ====================================
 
-    bintang = "⭐" * int(row["Rating"])
+st.subheader("Beberapa Ulasan Pengguna")
 
-    st.markdown(f"### {bintang}")
+col1, col2 = st.columns(2)
 
-    st.write(f"**{row['Nama Pengguna']}**")
+for i, (_, row) in enumerate(df_review.iterrows()):
 
-    st.write(row["Ulasan"])
+    rating = "⭐" * int(row["Rating"])
 
-    st.caption(row["Tanggal"])
+    card = f"""
+**{row['Nama']}**
 
-    st.divider()
+{rating}
+
+{row['Ulasan']}
+
+📅 {row['Tanggal']}
+"""
+
+    if i % 2 == 0:
+        with col1:
+            st.container(border=True)
+            st.markdown(card)
+    else:
+        with col2:
+            st.container(border=True)
+            st.markdown(card)
