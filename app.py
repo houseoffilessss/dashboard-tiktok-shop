@@ -332,7 +332,7 @@ with col1:
 with col2:
     st.metric(
         label="Rating Rata-rata",
-        value=f"{df_rating['Rating'].mean():.2f} ⭐"
+        value=f"⭐{df_rating['Rating'].mean():.2f}"
     )
 
 # ====================================
@@ -350,18 +350,8 @@ for i, (_, row) in enumerate(df_review.iterrows()):
     card = f"""
 **{row['Nama']}**
 
+📅 {row['Tanggal']}
+
 {rating}
 
 {row['Ulasan']}
-
-📅 {row['Tanggal']}
-"""
-
-    if i % 2 == 0:
-        with col1:
-            st.container(border=True)
-            st.markdown(card)
-    else:
-        with col2:
-            st.container(border=True)
-            st.markdown(card)
