@@ -50,6 +50,11 @@ df_review = pd.read_csv(
     header=2
 )
 
+# Urutkan dari rating tertinggi ke terendah
+df_review = df_review.sort_values(
+    by=["Rating", "Tanggal"],
+    ascending=[False, False]
+)
 # ====================================
 # FILTER
 # ====================================
