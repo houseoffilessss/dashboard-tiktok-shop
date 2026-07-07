@@ -358,11 +358,11 @@ margin-bottom:15px;
 
 <h4>{row['Nama']}</h4>
 
-<p style="color:#B0B0B0;">📅 {row['Tanggal']}</p>
-
 <div style="font-size:20px;">{rating}</div>
 
 <p>{row['Ulasan']}</p>
+
+<p style="color:#B0B0B0;">📅 {row['Tanggal']}</p>
 
 </div>
 """
